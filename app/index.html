@@ -5,48 +5,39 @@
     <title>Global Terror Graph</title>
     <style>
         .graphcontainer {
-            position: relative;
-            margin: 0px auto;
-            width: 97%;
+            width: 100%;
         }
         .graphoverlay {
-            position: absolute;
-            width: 100%;
             font-size: large;
-            font-family: sans-serif;
             z-index: 2;
-            /* pointer-events: none; needed to let click events pass through to lower layer */
-            pointer-events: none;
         }
         canvas {
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
-            position: absolute;
             z-index: 1;
         }
-        .selectbox {
-            /* pointer-events: none; needed to let click events pass through to lower layer */
-            pointer-events: all;
-            margin: 5px 0px 0px;
+        .date-selectbox {
+            float: left;
+        }
+        .country-selectbox {
+            float: right;
         }
         select {
             font-size: larger;
+            max-width: 150px;
         }
+        .footer {
+        }
+
         .datalink {
-            position:fixed;
+            float: left;
             font-family: monospace;
             font-size: small;
-            left: 5px;
-            bottom: 5px;
-            pointer-events: all;
         }
-        .about {
-            position:fixed;
+        .facebook {
+            float: right;
             font-size: small;
-            right: 5px;
-            bottom: 5px;
-            pointer-events: all;
         }
     </style>
 </head>
@@ -65,12 +56,9 @@
 
 
 <div class="graphcontainer">
-    <div id="container">
-        <canvas id="canvas"></canvas>
-    </div>
     <div class="graphoverlay">
-        <div style="float:left">
-            <div class="selectbox">
+        <div>
+            <div class="date-selectbox">
             <!--label for="select_year">Year:</label-->
             <select title="Year of terror" id="select_year">
                 <option value="2001">2001</option>
@@ -97,18 +85,24 @@
             </div>
 
         </div>
-        <div class="selectbox" style="float: right">
-            <label for="select_country">Country:</label>
-            <select title="Country" id="select_country" style="max-width: 150px;">
-                <option value="all" selected="selected">all</option>
+        <div class="country-selectbox">
+            <!--label for="select_country">Country:</label-->
+            <select title="Country" id="select_country">
+                <option value="all" selected="selected">All</option>
             </select>
         </div>
-        <div class="datalink">
-            [<a href="https://github.com/aulawabbel/terror#terror">More information</a>]
+        <div id="container">
+            <canvas id="canvas"></canvas>
         </div>
-        <div class="about"">
-        <div style="margin-left: 20px;" class="fb-like" data-href="https://aulawabbel.github.io/terror/" data-width="100" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
+        <div class="footer">
+            <div class="datalink">
+                [<a href="https://github.com/aulawabbel/terror#terror">More information</a>]
+            </div>
+            <div class="facebook">
+                <div class="fb-like" data-href="https://aulawabbel.github.io/terror/" data-width="100" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
+            </div>
         </div>
+
     </div>
 </div>
 <script src="dist/bundle.js"></script>

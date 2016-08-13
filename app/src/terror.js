@@ -218,12 +218,12 @@ var fillCounties = function(data){
     select.empty();
     select.append($('<option/>', {
         value: 'all',
-        text : 'All'
+        text : 'All Countries'
     }));
     _core.forEach(countries, function(country) {
         select.append($('<option/>', {
             value: country,
-            text : country
+            text : country[0].toUpperCase() + country.substr(1)
         }));
     });
     select.val(selected);
@@ -241,7 +241,7 @@ var fillMonths = function(data){
     select.empty();
     select.append($('<option/>', {
         value: 'all',
-        text : 'All'
+        text : 'All Months'
     }));
     _core.forEach(months, function(month) {
         select.append($('<option/>', {
