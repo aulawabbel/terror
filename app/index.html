@@ -5,7 +5,11 @@
     <title>Global Terror Graph</title>
     <style>
         .graphcontainer {
-            width: 100%;
+            position: absolute;
+            left: 0px;
+            right:0px ;
+            top: 0px;
+            bottom: 0px;
         }
         .graphoverlay {
             font-size: large;
@@ -17,23 +21,21 @@
             -ms-user-select: none;
             z-index: 1;
         }
-        .date-selectbox {
+        .filter-selectboxes {
             float: left;
-        }
-        .country-selectbox {
-            float: right;
         }
         select {
             font-size: larger;
-            max-width: 150px;
+            max-width: 200px;
         }
         .footer {
+            float: right;
         }
 
         .datalink {
             float: left;
             font-family: monospace;
-            font-size: small;
+            margin-right: 10px;
         }
         .facebook {
             float: right;
@@ -57,8 +59,7 @@
 
 <div class="graphcontainer">
     <div class="graphoverlay">
-        <div>
-            <div class="date-selectbox">
+            <div class="filter-selectboxes">
             <!--label for="select_year">Year:</label-->
             <select title="Year of terror" id="select_year">
                 <option value="2001">2001</option>
@@ -82,25 +83,22 @@
                 <select title="Month" id="select_month">
                     <option value="all" selected="selected">All</option>
                 </select>
+                <!--label for="select_country">Country:</label-->
+                <select title="Country" id="select_country">
+                    <option value="all" selected="selected">All</option>
+                </select>
             </div>
 
-        </div>
-        <div class="country-selectbox">
-            <!--label for="select_country">Country:</label-->
-            <select title="Country" id="select_country">
-                <option value="all" selected="selected">All</option>
-            </select>
-        </div>
-        <div id="container">
-            <canvas id="canvas"></canvas>
-        </div>
         <div class="footer">
             <div class="datalink">
-                [<a href="https://github.com/aulawabbel/terror#terror">More information</a>]
+                [<a href="https://github.com/aulawabbel/terror#terror">About</a>]
             </div>
             <div class="facebook">
                 <div class="fb-like" data-href="https://aulawabbel.github.io/terror/" data-width="100" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
             </div>
+        </div>
+        <div id="container">
+            <canvas id="canvas"></canvas>
         </div>
 
     </div>

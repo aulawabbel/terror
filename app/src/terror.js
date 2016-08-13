@@ -30,6 +30,7 @@ window.onload = function() {
                 text: 'Terror...'
             },
             responsive: true,
+            maintainAspectRatio: true,
             legend: {
                 position: 'top'
             },

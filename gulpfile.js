@@ -27,7 +27,7 @@ gulp.task('scripts', function() {
     .pipe(source('bundle.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./app/dist'));
  
