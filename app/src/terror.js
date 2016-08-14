@@ -27,7 +27,8 @@ window.onload = function() {
         options: {
             title: {
                 display: true,
-                text: 'Terror...'
+                text: 'Terror...',
+                fontSize: 16
             },
             responsive: true,
             maintainAspectRatio: true,
@@ -155,32 +156,16 @@ var updateChart = function (year, month, country){
         textInfo += " " +  MONTHS[month];
     }
     if (country !== 'all') {
-        textInfo += " " + country;
+        textInfo += " " + utils.titleCase(country);
     }
-    var totKills = 0, totInjured = 0, totAttacks = 0;
-
-    if (window.myCart.isDatasetVisible(0)) {
-        totAttacks += islamicRows.length;
-        totKills += _math.sumBy(islamicRows, function(row) { return row[Data.COL.KILLS];} );
-        totInjured += _math.sumBy(islamicRows, function(row) { return row[Data.COL.INJURED];} );
-    }
-    if (window.myCart.isDatasetVisible(1)) {
-        totAttacks += nonIslamicRows.length;
-        totKills += _math.sumBy(nonIslamicRows, function(row) { return row[Data.COL.KILLS];} );
-        totInjured += _math.sumBy(nonIslamicRows, function(row) { return row[Data.COL.INJURED];} );
-    }
-    textInfo += " (Attacks:" + totAttacks;
-    textInfo += " Killed:"  + totKills;
-    textInfo += " Injured:" + totInjured;
-    textInfo += ")";
 
     window.myCart.options.title.text = ["Terror", textInfo];
+    $('.statistics').text(textInfo + ' - ' + getStatisticsString(islamicRows, nonIslamicRows));
 
     barChartData.datasets[0].data = islamicData;
     barChartData.datasets[1].data = nonIslamicData;
     window.myCart.update();
 };
-
 var getBubbleData = function(rows, col){
     var radius;
     var valueForLog;
@@ -200,6 +185,27 @@ var getBubbleData = function(rows, col){
             r : radius
         };
     });
+
+};
+
+var getStatisticsString = function(islamicRows, nonIslamicRows) {
+    var totKills = 0, totInjured = 0, totAttacks = 0;
+
+    if (window.myCart.isDatasetVisible(0)) {
+        totAttacks += islamicRows.length;
+        totKills += _math.sumBy(islamicRows, function(row) { return row[Data.COL.KILLS];} );
+        totInjured += _math.sumBy(islamicRows, function(row) { return row[Data.COL.INJURED];} );
+    }
+    if (window.myCart.isDatasetVisible(1)) {
+        totAttacks += nonIslamicRows.length;
+        totKills += _math.sumBy(nonIslamicRows, function(row) { return row[Data.COL.KILLS];} );
+        totInjured += _math.sumBy(nonIslamicRows, function(row) { return row[Data.COL.INJURED];} );
+    }
+
+    var stats = "Attacks:" + totAttacks.toLocaleString();
+    stats += " Killed:"  + totKills.toLocaleString();
+    stats += " Injured:" + totInjured.toLocaleString();
+    return stats;
 
 };
 
@@ -224,7 +230,7 @@ var fillCounties = function(data){
     _core.forEach(countries, function(country) {
         select.append($('<option/>', {
             value: country,
-            text : country[0].toUpperCase() + country.substr(1)
+            text : utils.titleCase(country)
         }));
     });
     select.val(selected);

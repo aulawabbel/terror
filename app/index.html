@@ -3,42 +3,7 @@
 
 <head>
     <title>Global Terror Graph</title>
-    <style>
-        .graphcontainer {
-            width: 100%;
-        }
-        #container {
-            width: 100%;
-            position: relative;
-            top: 10px;
-            bottom: 0px;;
-        }
-
-        .footer {
-            position: absolute;
-            font-family: monospace;
-            top: 0px;
-            right: 0px;
-
-        }
-
-        .filter-selectboxes {
-            position: absolute;
-            top: 0px;
-        }
-
-        select {
-            max-width: 150px;
-            font-size: larger;
-        }
-
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            z-index: 1;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="app.css">
 </head>
 
 <body>
@@ -54,12 +19,11 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 <!-- END Facebook like -->
 
-
 <div class="graphcontainer">
         <div id="container">
             <canvas id="canvas"></canvas>
         </div>
-        <div class="filter-selectboxes">
+        <div class="header">
             <!--label for="select_year">Year:</label-->
             <select title="Year of terror" id="select_year">
                 <option value="2001">2001</option>
@@ -83,20 +47,29 @@
             <select title="Month" id="select_month">
                 <option value="all" selected="selected">All</option>
             </select>
+            <div id="countrybox">
             <!--label for="select_country">Country:</label-->
             <select title="Country" id="select_country">
                 <option value="all" selected="selected">All</option>
             </select>
+
+            </div>
+            <div>
+
+            </div>
         </div>
 
         <div class="footer">
-            [<a href="https://github.com/aulawabbel/terror#terror">About</a>]
             <div class="fb-like" data-href="https://aulawabbel.github.io/terror/" data-width="100"
                  data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
+            <div class="statistics"></div>
+            <div class="about">[<a href="https://github.com/aulawabbel/terror#terror">About</a>]</div>
         </div>
 
 </div>
 <script src="dist/bundle.js"></script>
+
+<!-- START Analytics -->
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -114,6 +87,7 @@
     ga('send', 'pageview');
 
 </script>
+<!-- END Analytics -->
 </body>
 
 </html>

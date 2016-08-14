@@ -1,0 +1,55 @@
+.graphcontainer {
+    position: relative;
+    margin: 0px auto;
+    width: 97%;
+}
+#container {
+    position: relative;
+}
+.header {
+    position: absolute;
+    margin: 5px 5px 0px;
+    font-size: larger;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+
+}
+#countrybox {
+    float: right;
+}
+.footer {
+    width: 100%;
+    font-family: monospace;
+    height: 20px;
+    overflow: hidden;
+    font-size: large;
+    text-align: center;
+}
+.footer .fb-like {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    /*float: right;*/
+}
+
+.footer .statistics {
+    display: inline-block;
+    position: relative;
+    background-color: gainsboro;
+}
+.footer .about {
+    display: inline-block;
+    float: left;
+}
+select {
+    max-width: 165px;
+    font-family: sans-serif;
+    font-size: larger;
+}
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
