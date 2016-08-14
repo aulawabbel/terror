@@ -1,5 +1,10 @@
-# terror 
-Web application and data that graph the terror since 2001
+# Global Terror Graph
+This is a Web application and data that graph the terror since 2001
+
+## Usage
+Hover over a specific bubble to show details of the attack.
+You can filter on year, month and country.
+To only show Islamic or non Islamic attacks click the respective lable in the legend.
 
 ## Data sources:
 
@@ -10,15 +15,6 @@ Web application and data that graph the terror since 2001
 
 Created by Aulawabbel 2016
 
-TODO: Write a project description
-
-## Installation
-
-npm install
-
-## Usage
-
-TODO: Write usage instructions
 
 ## Contributing
 
@@ -30,13 +26,21 @@ Please help out to update the terror data with corrections and additions and cod
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## History
+## Installation
+Only for developers!
+Install needed javascript packages using Node package manager:
+ $ npm install
 
-TODO: Write history
+To compile the javascript into bundle use gulp.
+ $ gulp watch
+
+
 
 ## Credits
 
-TODO: Write credits
+Aulawabbel
+www.thereligionofpeace.com
+Wikipedia
 
 ## License
 
