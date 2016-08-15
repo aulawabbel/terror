@@ -1,8 +1,7 @@
 '''
-Created on 30 jul 2016
-
-@author: Fredrik
+Scrapes data from  thereligionofpeace.com and writes json files.
 '''
+
 from bs4 import BeautifulSoup
 import urllib2
 
@@ -34,7 +33,7 @@ if __name__ == '__main__':
         from_year = int(from_year)
         to_year = int(to_year)
     except ValueError, e:
-        raise SystemExit('Syntax: from_year, to_year, outdir\nex.\n 2005 2016 ../data' )
+        raise SystemExit(__doc__ + 'Syntax: from_year, to_year, outdir\nex.\n 2005 2016 ../data' )
     outdir = os.path.abspath(outdir)
     for year in range(from_year, to_year+1):
         print "Processing:", year
