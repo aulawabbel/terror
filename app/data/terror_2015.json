@@ -346,14 +346,6 @@
     ], 
     [
       "2015.01.06", 
-      "Dagestan", 
-      "Khasavyurt", 
-      2, 
-      2, 
-      "Suspected extremists ambush and kill two local cops."
-    ], 
-    [
-      "2015.01.06", 
       "Egypt", 
       "Cairo", 
       1, 
@@ -616,14 +608,7 @@
       0, 
       "The Islamic State applies the \"law of Allah\" to two Tunisian journalists."
     ], 
-    [
-      "2015.01.08", 
-      "Pakistan", 
-      "Nazimambad", 
-      2, 
-      0, 
-      "Two policemen are shot to death by suspected Sunni extremists."
-    ], 
+
     [
       "2015.01.08", 
       "Syria", 
@@ -687,14 +672,6 @@
       8, 
       20, 
       "Eight worshippers are blown to bits by a suicide bomber at a Shia mosque."
-    ], 
-    [
-      "2015.01.10", 
-      "Bangladesh", 
-      "Chittagong", 
-      1, 
-      0, 
-      "A Hindu nurse is hacked to death on her way to work by suspected Jammat Islamists."
     ], 
     [
       "2015.01.10", 
@@ -936,14 +913,7 @@
       4, 
       "Three people are taken out by a Shahid suicide car bomber."
     ], 
-    [
-      "2015.01.13", 
-      "Pakistan", 
-      "Rizvia", 
-      2, 
-      0, 
-      "Two members of a secular party are shot outside their home by suspected Taliban."
-    ], 
+
     [
       "2015.01.13", 
       "Syria", 
@@ -992,14 +962,7 @@
       0, 
       "Religious militants lob a grenade into a house, killing one person."
     ], 
-    [
-      "2015.01.14", 
-      "Pakistan", 
-      "Dera Ismail Khan", 
-      3, 
-      3, 
-      "Three policemen bleed to death after suspected Taliban fire a rocket at them."
-    ], 
+
     [
       "2015.01.14", 
       "Somalia", 
@@ -1338,14 +1301,6 @@
     ], 
     [
       "2015.01.19", 
-      "Pakistan", 
-      "Karachi", 
-      4, 
-      1, 
-      "Islamic militants are suspected in two shooting attacks that end the lives of four local cops."
-    ], 
-    [
-      "2015.01.19", 
       "Syria", 
       "Damascus", 
       1, 
@@ -1447,14 +1402,6 @@
       8, 
       21, 
       "Eight Iraqis  are liquidated by a Fedayeen suicide bomber."
-    ], 
-    [
-      "2015.01.22", 
-      "Libya", 
-      "Sirte", 
-      2, 
-      0, 
-      "Two men are shot to death by suspected Fajr Libya."
     ], 
     [
       "2015.01.22", 
@@ -1682,14 +1629,6 @@
     ], 
     [
       "2015.01.26", 
-      "Afghanistan", 
-      "Kabul", 
-      1, 
-      0, 
-      "A former court official is assassinated by suspected Taliban."
-    ], 
-    [
-      "2015.01.26", 
       "Iraq", 
       "Abu Ghraib", 
       6, 
@@ -1735,14 +1674,6 @@
       5, 
       0, 
       "Five local soldiers are ambushed and killed by al-Qaeda."
-    ], 
-    [
-      "2015.01.27", 
-      "Afghanistan", 
-      "Kot", 
-      2, 
-      0, 
-      "Two brothers are shot to death by suspected Taliban."
     ], 
     [
       "2015.01.27", 
@@ -2251,14 +2182,6 @@
     [
       "2015.02.01", 
       "Pakistan", 
-      "Jhang", 
-      2, 
-      0, 
-      "Two sisters are honor killed by their family for refusing to marry men picked out for them."
-    ], 
-    [
-      "2015.02.01", 
-      "Pakistan", 
       "Karachi", 
       4, 
       1, 
@@ -2303,14 +2226,6 @@
       7, 
       28, 
       "Seven Iraqis are sent to Allah by a Fedayeen suicide bomber."
-    ], 
-    [
-      "2015.02.02", 
-      "Libya", 
-      "Tripoli", 
-      1, 
-      2, 
-      "One person is taken out by suspected Fajr Libya bombers."
     ], 
     [
       "2015.02.02", 
@@ -2495,14 +2410,6 @@
       5, 
       3, 
       "A suicide car bomber takes out five security personnel."
-    ], 
-    [
-      "2015.02.05", 
-      "Afghanistan", 
-      "Herat", 
-      2, 
-      0, 
-      "Suspected Taliban gunmen pull up on a motorcycle and murder two traffic cops."
     ], 
     [
       "2015.02.05", 
@@ -4121,14 +4028,6 @@
       "Sunnis assassinate a prominent Shia."
     ], 
     [
-      "2015.03.01", 
-      "Libya", 
-      "Benghazi", 
-      2, 
-      30, 
-      "Islamists are suspected of lobbing rockets into a government controlled area, killing two residents."
-    ], 
-    [
       "2015.03.02", 
       "Afghanistan", 
       "Jalalabad", 
@@ -4593,22 +4492,6 @@
       "A Sunni car bomb in a Shia area leaves three dead and seventeen others with splinter injuries."
     ], 
     [
-      "2015.03.08", 
-      "Mali", 
-      "Kidal", 
-      3, 
-      8, 
-      "Two children are among three killed when suspected al-Qaeda send rockets into a town."
-    ], 
-    [
-      "2015.03.08", 
-      "Uganda", 
-      "Iganga", 
-      1, 
-      0, 
-      "A 16-year-old girl is suspected to have been poisoned to death by relatives after being beaten for converting to Christianity."
-    ], 
-    [
       "2015.03.09", 
       "Egypt", 
       "al-Kharouba", 
@@ -4639,22 +4522,6 @@
       2, 
       0, 
       "Two hostages are executed in cold blood by Islamists."
-    ], 
-    [
-      "2015.03.09", 
-      "Pakistan", 
-      "Chagharzai", 
-      2, 
-      0, 
-      "Two women are honor killed over moral activity by family members with machine-guns."
-    ], 
-    [
-      "2015.03.09", 
-      "Pakistan", 
-      "Karachi", 
-      1, 
-      0, 
-      "A Shiite university student is shot to death in a suspected targeted attack by Sunnis."
     ], 
     [
       "2015.03.09", 
@@ -5674,14 +5541,6 @@
     ], 
     [
       "2015.03.25", 
-      "Egypt", 
-      "Fayum", 
-      1, 
-      0, 
-      "Ansar Beit al-Maqdis is suspected of leaving a bomb that kills a 10-year-old girl."
-    ], 
-    [
-      "2015.03.25", 
       "Iraq", 
       "Mosul", 
       2, 
@@ -5930,14 +5789,6 @@
     ], 
     [
       "2015.03.29", 
-      "Pakistan", 
-      "Hayatabad", 
-      1, 
-      0, 
-      "The Taliban are suspected of gunning down an off-duty soldier."
-    ], 
-    [
-      "2015.03.29", 
       "Syria", 
       "Hama", 
       8, 
@@ -5991,14 +5842,6 @@
       6, 
       0, 
       "A half-dozen teachers are reportedly executed for speaking out against ISIS."
-    ], 
-    [
-      "2015.03.30", 
-      "Libya", 
-      "Zawiya", 
-      1, 
-      5, 
-      "Fajr Libya is suspected of killing a foreign oil worker with a rocket."
     ], 
     [
       "2015.03.30", 
@@ -6119,14 +5962,6 @@
       1, 
       0, 
       "A man is stoned to death for 'violating Allah's law'."
-    ], 
-    [
-      "2015.04.01", 
-      "Kenya", 
-      "Dadaab", 
-      1, 
-      3, 
-      "Suspected al-Shabaab shoot and kill a teacher at a refugee camp."
     ], 
     [
       "2015.04.01", 
@@ -6327,14 +6162,6 @@
       4, 
       5, 
       "Taliban bombers take out four civilians and leave five others with splinter injuries."
-    ], 
-    [
-      "2015.04.04", 
-      "Mali", 
-      "Bamako", 
-      1, 
-      2, 
-      "Islamists are suspected of a planted bomb blast that leaves one dead."
     ], 
     [
       "2015.04.04", 
@@ -7706,14 +7533,6 @@
     ], 
     [
       "2015.04.23", 
-      "Pakistan", 
-      "Lahore", 
-      1, 
-      0, 
-      "A 19-year-old woman is strangled  - honor killed - by her father on suspicion of a sexual affair."
-    ], 
-    [
-      "2015.04.23", 
       "Syria", 
       "Raqqa", 
       2, 
@@ -7783,14 +7602,6 @@
       14, 
       0, 
       "A suicide bomb attack leaves fourteen others dead."
-    ], 
-    [
-      "2015.04.24", 
-      "Israel", 
-      "Husan", 
-      1, 
-      7, 
-      "A 65-year-old woman is killed in a suspected terror attack."
     ], 
     [
       "2015.04.24", 
@@ -8098,14 +7909,6 @@
     ], 
     [
       "2015.04.27", 
-      "Libya", 
-      "Benghazi", 
-      2, 
-      0, 
-      "Two young brothers are taken out by a suspected Ansar al-Sharia mortar."
-    ], 
-    [
-      "2015.04.27", 
       "Nigeria", 
       "Damasak", 
       400, 
@@ -8223,14 +8026,6 @@
       3, 
       0, 
       "Islamic gunmen kill two soldiers and a child."
-    ], 
-    [
-      "2015.04.29", 
-      "Pakistan", 
-      "Karachi", 
-      1, 
-      0, 
-      "Fundamentalists are suspected in the targeted killing of a secular university professor."
     ], 
     [
       "2015.04.29", 
@@ -8415,14 +8210,6 @@
       300, 
       0, 
       "At least 300 Yazidi captives are reportedly executed by the Islamic State, including former sex slaves."
-    ], 
-    [
-      "2015.05.01", 
-      "Libya", 
-      "Benghazi", 
-      3, 
-      7, 
-      "Three medics are exterminated by a suspected Ansar al-Sharia mortar round."
     ], 
     [
       "2015.05.01", 
@@ -9219,14 +9006,6 @@
     [
       "2015.05.12", 
       "Pakistan", 
-      "Kot Sabzol", 
-      1, 
-      0, 
-      "A teen bride is honor killed by her conservative family over alleged sexual impropriety."
-    ], 
-    [
-      "2015.05.12", 
-      "Pakistan", 
       "Quetta", 
       1, 
       7, 
@@ -9843,14 +9622,6 @@
     [
       "2015.05.21", 
       "Iraq", 
-      "Diyala", 
-      2, 
-      0, 
-      "Two civilians lose their lives when suspected ISIS burn five homes."
-    ], 
-    [
-      "2015.05.21", 
-      "Iraq", 
       "Fallujah", 
       1, 
       0, 
@@ -10098,14 +9869,6 @@
     ], 
     [
       "2015.05.24", 
-      "Pakistan", 
-      "Bolochistan", 
-      3, 
-      15, 
-      "The Taliban is suspected of a bomb attack that produces three bodies."
-    ], 
-    [
-      "2015.05.24", 
       "Syria", 
       "Palmyra", 
       400, 
@@ -10167,14 +9930,6 @@
       3, 
       4, 
       "Lashkar-e-Islam fire on a patrol of soldiers, killing three."
-    ], 
-    [
-      "2015.05.25", 
-      "India", 
-      "Shyamnagar", 
-      1, 
-      0, 
-      "A 19-year-old is 'honor' strangled by her brother after marrying without her conservative family's permission."
     ], 
     [
       "2015.05.25", 
@@ -10279,14 +10034,6 @@
       1, 
       0, 
       "A sex slave who tried to escape ISIS is killed by having her legs cut off."
-    ], 
-    [
-      "2015.05.27", 
-      "Pakistan", 
-      "Gulberg", 
-      3, 
-      2, 
-      "Three local cops are gunned down by suspected Islamists."
     ], 
     [
       "2015.05.27", 
@@ -10599,14 +10346,6 @@
       2, 
       0, 
       "Two people are kidnapped and shot to death by Sharia proponents."
-    ], 
-    [
-      "2015.06.01", 
-      "Pakistan", 
-      "Tank", 
-      7, 
-      8, 
-      "At least seven people bleed out following a bombing at party by suspected Islamists."
     ], 
     [
       "2015.06.01", 
@@ -11698,27 +11437,11 @@
     ], 
     [
       "2015.06.19", 
-      "Pakistan", 
-      "Adda", 
-      1, 
-      0, 
-      "A 17-year-old girl is 'honor' strangled by her father on suspicion of an affair."
-    ], 
-    [
-      "2015.06.19", 
       "Yemen", 
       "Shibam", 
       1, 
       0, 
       "al-Qaeda gunmen assassinate a rival imam."
-    ], 
-    [
-      "2015.06.20", 
-      "Afghanistan", 
-      "Baghlan", 
-      1, 
-      0, 
-      "Fundamentalists are suspected of shooting a doctor to death in his home."
     ], 
     [
       "2015.06.20", 
@@ -11767,14 +11490,6 @@
       3, 
       0, 
       "Three former candidates for the Iraqi parliament are captured and executed by the caliphate."
-    ], 
-    [
-      "2015.06.20", 
-      "Pakistan", 
-      "Punjab", 
-      2, 
-      0, 
-      "Two women are honor killed by their brother and nephew."
     ], 
     [
       "2015.06.20", 
@@ -11863,14 +11578,6 @@
       2, 
       31, 
       "A suicide assault on parliament claims the lives of a woman and 10-year-old girl."
-    ], 
-    [
-      "2015.06.22", 
-      "Afghanistan", 
-      "Logharo Peerano", 
-      3, 
-      0, 
-      "Three people are shot point-blank in their car by suspected Sunni radicals."
     ], 
     [
       "2015.06.22", 
@@ -12922,14 +12629,6 @@
     ], 
     [
       "2015.07.04", 
-      "Egypt", 
-      "Sheikh Zuweid", 
-      4, 
-      1, 
-      "Four women and a child are killed when a suspected Ansar Bayt al-Maqdis rocket hits their house."
-    ], 
-    [
-      "2015.07.04", 
       "Iraq", 
       "Baghdad", 
       9, 
@@ -13644,14 +13343,6 @@
       "2015.07.12", 
       "Libya", 
       "Benghazi", 
-      5, 
-      17, 
-      "Suspected Islamists fire a rocket into a residential district, killing five elderly men."
-    ], 
-    [
-      "2015.07.12", 
-      "Libya", 
-      "Benghazi", 
       19, 
       80, 
       "Nineteen people are killed during an ISIS assault."
@@ -14251,14 +13942,6 @@
     [
       "2015.07.21", 
       "Iraq", 
-      "Fallujah", 
-      9, 
-      12, 
-      "Women and children are among the victims of a suspected ISIS mortar attack."
-    ], 
-    [
-      "2015.07.21", 
-      "Iraq", 
       "Mandali", 
       8, 
       16, 
@@ -14279,14 +13962,6 @@
       4, 
       20, 
       "Four Iraqis are laid out by a suicide car bomber."
-    ], 
-    [
-      "2015.07.21", 
-      "Mali", 
-      "Gossi", 
-      2, 
-      0, 
-      "Two civilians are killed during an attack on a convoy by suspected Islamists."
     ], 
     [
       "2015.07.21", 
@@ -14722,14 +14397,6 @@
     ], 
     [
       "2015.07.27", 
-      "Pakistan", 
-      "Sangni", 
-      3, 
-      0, 
-      "A woman and her two children are shot to death by a family member in a suspected 'honor' attack."
-    ], 
-    [
-      "2015.07.27", 
       "Syria", 
       "Damascus", 
       1, 
@@ -15050,14 +14717,6 @@
     ], 
     [
       "2015.08.01", 
-      "Mali", 
-      "Nampala", 
-      2, 
-      4, 
-      "Two local soldiers are murdered in a suspected al-Qaeda ambush."
-    ], 
-    [
-      "2015.08.01", 
       "Syria", 
       "Aleppo", 
       10, 
@@ -15135,14 +14794,6 @@
       8, 
       0, 
       "Eight people trying to flee an ISIS occupation are captured and executed."
-    ], 
-    [
-      "2015.08.03", 
-      "Iraq", 
-      "Kirkuk", 
-      1, 
-      0, 
-      "An oil company executive is assassinated by suspected Jihadis."
     ], 
     [
       "2015.08.03", 
@@ -15343,14 +14994,6 @@
       6, 
       24, 
       "Doctors are among the casualties of a suicide truck bomb."
-    ], 
-    [
-      "2015.08.06", 
-      "India", 
-      "Neelum Valley", 
-      1, 
-      1, 
-      "Suspected Islamists kill a 13-year-old boy with a bomb resembling a toy."
     ], 
     [
       "2015.08.06", 
@@ -16098,27 +15741,11 @@
     ], 
     [
       "2015.08.16", 
-      "Thailand", 
-      "Mayo", 
-      1, 
-      0, 
-      "Suspected terrorists take out a villager with four shotgun blasts."
-    ], 
-    [
-      "2015.08.16", 
       "Yemen", 
       "Taiz", 
       6, 
       0, 
       "Six civilians are pulled limb from limb when Shiite radicals send rockets into their city."
-    ], 
-    [
-      "2015.08.17", 
-      "India", 
-      "Bamani Chowki", 
-      1, 
-      0, 
-      "A 17-year-old girl is beheaded by her conservative brothers for having an affair."
     ], 
     [
       "2015.08.17", 
@@ -16338,14 +15965,6 @@
     ], 
     [
       "2015.08.21", 
-      "Afghanistan", 
-      "Sar-e-Rawza", 
-      3, 
-      1, 
-      "Three young children are taken out by a suspected Taliban rocket at their school."
-    ], 
-    [
-      "2015.08.21", 
       "France", 
       "Paris", 
       0, 
@@ -16487,14 +16106,6 @@
       2, 
       3, 
       "At least two people are killed in separate terror attacks."
-    ], 
-    [
-      "2015.08.23", 
-      "Pakistan", 
-      "Dasht", 
-      4, 
-      0, 
-      "The Taliban is suspected of abducting and brutally executing four laborers."
     ], 
     [
       "2015.08.23", 
@@ -17419,14 +17030,6 @@
     [
       "2015.09.09", 
       "Pakistan", 
-      "Karachi", 
-      2, 
-      0, 
-      "Shiite radicals are suspected of gunning down a shop owner and his assistant."
-    ], 
-    [
-      "2015.09.09", 
-      "Pakistan", 
       "Shah Faisal", 
       1, 
       0, 
@@ -17455,14 +17058,6 @@
       5, 
       0, 
       "Five police officers on patrol are destroyed by a Taliban bomb blast."
-    ], 
-    [
-      "2015.09.10", 
-      "CAR", 
-      "Bangui", 
-      2, 
-      20, 
-      "Muslim terrorists are suspected of three grenade attacks on gathered crowds that leave two dead."
     ], 
     [
       "2015.09.10", 
@@ -17631,14 +17226,6 @@
       2, 
       0, 
       "Two men are picked off by Taliban snipers while fetching water."
-    ], 
-    [
-      "2015.09.13", 
-      "Pakistan", 
-      "Khyber Pakhtunkhwa", 
-      7, 
-      0, 
-      "Seven people are shot to death by suspected terrorists."
     ], 
     [
       "2015.09.13", 
@@ -17839,14 +17426,6 @@
       1, 
       0, 
       "A 22-year-old man is pulled into three pieces by a Muslim bomb."
-    ], 
-    [
-      "2015.09.17", 
-      "Afghanistan", 
-      "Faizabad", 
-      1, 
-      0, 
-      "Suspected Islamists toss a grenade into the house of a freelance journalist."
     ], 
     [
       "2015.09.17", 
@@ -18338,12 +17917,12 @@
     ], 
     [
       "2015.09.25", 
-      "Saudi Arabia", 
-      "Marib", 
-      2, 
-      0, 
+      "Saudi Arabia",
+      "Marib",
+      2,
+      0,
       "Shiite radicals are suspected of disabling a vehicle with a bomb and then shooting the occupants."
-    ], 
+    ],
     [
       "2015.09.25", 
       "Saudi Arabia", 
@@ -18954,14 +18533,6 @@
     ], 
     [
       "2015.10.07", 
-      "Germany", 
-      "Dessau", 
-      1, 
-      0, 
-      "A young refugee is honor killed on the order of her family after being gang-raped in Syria."
-    ], 
-    [
-      "2015.10.07", 
       "India", 
       "Bandipora", 
       1, 
@@ -19119,14 +18690,6 @@
       3, 
       0, 
       "Jihadists machine-gun three civilians."
-    ], 
-    [
-      "2015.10.09", 
-      "Pakistan", 
-      "Okara", 
-      1, 
-      2, 
-      "A politician is murdered by suspected Tehreek-e-Taliban."
     ], 
     [
       "2015.10.10", 
@@ -19754,14 +19317,6 @@
     ], 
     [
       "2015.10.23", 
-      "Libya", 
-      "Benghazi", 
-      12, 
-      39, 
-      "Suspected Islamists kill a dozen demonstrators with a rocket barrage."
-    ], 
-    [
-      "2015.10.23", 
       "Nigeria", 
       "Maiduguri", 
       19, 
@@ -20202,14 +19757,6 @@
     ], 
     [
       "2015.10.31", 
-      "Pakistan", 
-      "Karachi", 
-      1, 
-      0, 
-      "A secular political activist is assassinated by suspected Islamists."
-    ], 
-    [
-      "2015.10.31", 
       "Yemen", 
       "Aden", 
       2, 
@@ -20231,14 +19778,6 @@
       3, 
       0, 
       "Three Kurds are executed for refusing to join the caliphate."
-    ], 
-    [
-      "2015.11.01", 
-      "Pakistan", 
-      "Rana Deray", 
-      1, 
-      0, 
-      "Suspected Islamists fire on a car carrying a female judge, killing the driver."
     ], 
     [
       "2015.11.01", 
@@ -20714,27 +20253,11 @@
     ], 
     [
       "2015.11.12", 
-      "CAR", 
-      "Bandambou", 
-      6, 
-      0, 
-      "Six hunters are shot to death by suspected Seleka militants."
-    ], 
-    [
-      "2015.11.12", 
       "Italy", 
       "Milan", 
       0, 
       1, 
       "A Haredi Jew is stabbed nine times by a masked Muslim."
-    ], 
-    [
-      "2015.11.12", 
-      "Jordan", 
-      "Irbid", 
-      2, 
-      0, 
-      "In the name of honor, a man beheads his sister and stabs her 15-year-old son."
     ], 
     [
       "2015.11.12", 
@@ -21673,14 +21196,6 @@
       "Five Kurds are eliminated by a Fedayeen suicide bomber."
     ], 
     [
-      "2015.12.01", 
-      "Jordan", 
-      "Irbid", 
-      2, 
-      0, 
-      "Suspected Sunni militants open fire on a police car, killing two occupants."
-    ], 
-    [
       "2015.12.02", 
       "Cameroon", 
       "Waza", 
@@ -22098,14 +21613,6 @@
     ], 
     [
       "2015.12.12", 
-      "Egypt", 
-      "Rafah", 
-      4, 
-      0, 
-      "Four people are shot to death by suspected Islamists."
-    ], 
-    [
-      "2015.12.12", 
       "Iraq", 
       "Baghdad", 
       2, 
@@ -22290,14 +21797,6 @@
     ], 
     [
       "2015.12.14", 
-      "Somalia", 
-      "Mogadishu", 
-      1, 
-      0, 
-      "An aid worker and father of two is senselessly shot to death by suspected al-Shabaab."
-    ], 
-    [
-      "2015.12.14", 
       "Syria", 
       "Damascus", 
       2, 
@@ -22463,14 +21962,6 @@
       3, 
       0, 
       "Three broadcasters are brutally murdered outside a Christian radio station."
-    ], 
-    [
-      "2015.12.18", 
-      "Pakistan", 
-      "Karachi", 
-      1, 
-      0, 
-      "A secular political activist is kidnapped and murdered by suspected extremists."
     ], 
     [
       "2015.12.19", 
@@ -22753,14 +22244,6 @@
       "A pastor is beheaded by militant Muslims."
     ], 
     [
-      "2015.12.23", 
-      "Yemen", 
-      "Dar Saad", 
-      1, 
-      0, 
-      "A local official is assassinated by suspected al-Qaeda."
-    ], 
-    [
       "2015.12.24", 
       "Egypt", 
       "Sinai", 
@@ -22911,14 +22394,6 @@
       11, 
       0, 
       "Eleven people are murdered by Ansar Dine."
-    ], 
-    [
-      "2015.12.26", 
-      "Philippines", 
-      "Marawi", 
-      2, 
-      0, 
-      "Two guards for a news crew are cut down in a hail of bullets from suspected ISIS sympathizers."
     ], 
     [
       "2015.12.27", 
