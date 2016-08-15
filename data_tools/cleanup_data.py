@@ -4,7 +4,6 @@ Small interactive console util to ease cleanup of json data based on text filter
 
 import re
 re_filter = re.compile(r'(suspected|honor)', re.IGNORECASE)
-COUNTRY_COL = 2
 DESC_COL = 5
 
 def save_json(outfname, data):
