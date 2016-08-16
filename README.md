@@ -35,9 +35,9 @@ To compile the javascript into bundle use gulp.
 
 ## Credits
 
-www.thereligionofpeace.com
-Wikipedia
-http://www.chartjs.org/
+* www.thereligionofpeace.com
+* Wikipedia
+* The chart library: http://www.chartjs.org/
 
 ## License
 
