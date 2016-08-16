@@ -19,28 +19,25 @@ Created by Aulawabbel 2016
 ## Contributing
 
 Please help out to update the terror data with corrections and additions and code fixes and new features.
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+The data can be found here in `app/data/` directory.
 
 ## Installation
 Only for developers!
 Install needed javascript packages using Node package manager:
- $ npm install
+
+ `$ npm install`
 
 To compile the javascript into bundle use gulp.
- $ gulp watch
+
+ `$ gulp watch`
 
 
 
 ## Credits
 
-Aulawabbel
 www.thereligionofpeace.com
 Wikipedia
+http://www.chartjs.org/
 
 ## License
 
