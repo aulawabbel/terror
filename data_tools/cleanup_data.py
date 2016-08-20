@@ -27,7 +27,7 @@ if __name__ == '__main__':
         rows = data['rows']
         data['rows'] = out_rows
         for row in rows:
-            if re_filter.match(row[DESC_COL]):
+            if re_filter.search(row[DESC_COL]):
                 print ' | '.join(str(val) for val in row)
                 print re_filter.sub(r'** \1 **', row[DESC_COL])
                 while True:
