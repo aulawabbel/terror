@@ -125,6 +125,12 @@ var barChartData = {
         data: []
     }, {
         hidden: false,
+        label: 'Suspected or "Honor"',
+        borderColor: 'rgb(0, 225, 0, 0.7)',
+        backgroundColor: "rgba(0, 255, 0,0.5)",
+        data: []
+    }, {
+        hidden: false,
         label: 'Non Islamic',
         borderColor: 'rgb(0, 0, 255, 0.7)',
         backgroundColor: "rgba(0,0,220,0.5)",
@@ -145,10 +151,16 @@ var updateChart = function (year, month, country){
     islamicRows = Data.filterMonth(month, islamicRows);
     islamicRows = Data.filterCountry(country, islamicRows);
 
+    var pattern = /(honor|suspected)/i;
+    var islamicSuspectedRows = Data.filterOnRegexp(pattern, islamicRows, false);
+
+    islamicRows = Data.filterOnRegexp(pattern, islamicRows, true);
+
     nonIslamicRows = Data.filterMonth(month, nonIslamicRows);
     nonIslamicRows = Data.filterCountry(country, nonIslamicRows);
 
     var islamicData = getBubbleData(islamicRows, Data.COL.KILLS);
+    var islamicSuspectedData = getBubbleData(islamicSuspectedRows, Data.COL.KILLS);
     var nonIslamicData = getBubbleData(nonIslamicRows, Data.COL.KILLS);
 
     var textInfo = " " + year;
@@ -163,7 +175,8 @@ var updateChart = function (year, month, country){
     $('.statistics').text(textInfo + ' - ' + getStatisticsString(islamicRows, nonIslamicRows));
 
     barChartData.datasets[0].data = islamicData;
-    barChartData.datasets[1].data = nonIslamicData;
+    barChartData.datasets[1].data = islamicSuspectedData;
+    barChartData.datasets[2].data = nonIslamicData;
     window.myCart.update();
 };
 var getBubbleData = function(rows, col){

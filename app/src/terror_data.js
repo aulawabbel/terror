@@ -119,11 +119,26 @@ var filterDate = function(startDate, endDate, rows) {
 
 };
 
+var filterOnRegexp = function(regexp, rows, invert) {
+    var match;
+    var myfilter = function(row) {
+        match = regexp.test(row[COL.DESCRIPTION]);
+        if (invert === true) {
+            return ! match;
+        } else {
+            return match;
+        }
+    };
+    rows = _core.filter(rows,  myfilter);
+    return rows;
+
+};
 
 module.exports.load = load;
 module.exports.getRowsDict = function(){ return dataDict; };
 module.exports.filterMonth = filterMonth;
 module.exports.filterCountry = filterCountry;
 module.exports.filterDate = filterDate;
+module.exports.filterOnRegexp = filterOnRegexp;
 module.exports.COL = COL;
 
