@@ -151,7 +151,7 @@ var updateChart = function (year, month, country){
     islamicRows = Data.filterMonth(month, islamicRows);
     islamicRows = Data.filterCountry(country, islamicRows);
 
-    var pattern = /(honor|suspected)/i;
+    var pattern = /(honor|suspected|moral|sexual|marrying)/i;
     var islamicSuspectedRows = Data.filterOnRegexp(pattern, islamicRows, false);
 
     islamicRows = Data.filterOnRegexp(pattern, islamicRows, true);
@@ -164,6 +164,7 @@ var updateChart = function (year, month, country){
     var nonIslamicData = getBubbleData(nonIslamicRows, Data.COL.KILLS);
 
     var textInfo = " " + year;
+    setTimeScale(year, month);
     if (month !== 'all') {
         textInfo += " " +  MONTHS[month];
     }
@@ -179,6 +180,18 @@ var updateChart = function (year, month, country){
     barChartData.datasets[2].data = nonIslamicData;
     window.myCart.update();
 };
+
+var setTimeScale = function(year, month) {
+    if (month !== 'all') {
+        window.myCart.options.scales.xAxes[0].time.min = moment(year, "YYYY").month(month).startOf('month');
+        window.myCart.options.scales.xAxes[0].time.max = moment(year, "YYYY").month(month).endOf('month');
+    } else {
+        window.myCart.options.scales.xAxes[0].time.min = moment(year, "YYYY").startOf('year');
+        window.myCart.options.scales.xAxes[0].time.max = moment(year, "YYYY").endOf('year');
+    }
+
+};
+
 var getBubbleData = function(rows, col){
     var radius;
     var valueForLog;
