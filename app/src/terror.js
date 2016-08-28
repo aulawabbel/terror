@@ -151,7 +151,7 @@ var updateChart = function (year, month, country){
     islamicRows = Data.filterMonth(month, islamicRows);
     islamicRows = Data.filterCountry(country, islamicRows);
 
-    var pattern = /(honor|suspected|moral|sexual|marrying)/i;
+    var pattern = /(honor|suspected|moral|sexual|marrying|indecent)/i;
     var islamicSuspectedRows = Data.filterOnRegexp(pattern, islamicRows, false);
 
     islamicRows = Data.filterOnRegexp(pattern, islamicRows, true);

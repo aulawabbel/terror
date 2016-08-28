@@ -3,7 +3,7 @@ Small interactive console util to ease cleanup of json data based on text filter
 '''
 
 import re
-re_filter = re.compile(r'(suspected|honor)', re.IGNORECASE)
+re_filter = re.compile(r'(England)', re.IGNORECASE)
 DESC_COL = 5
 
 def save_json(outfname, data):
