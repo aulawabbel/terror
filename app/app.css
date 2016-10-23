@@ -1,3 +1,13 @@
+html {
+    /*
+    Hack: Always display vertical scrollbar in webkit to avoid the horrid
+    flickering due to size and responsive resize.
+    More info here:
+      http://dmrutherford.github.io/echo/scrollbars-and-page-width/
+    */
+    overflow-y: scroll;
+}
+
 .graphcontainer {
     position: relative;
     margin: 0px auto;
