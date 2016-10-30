@@ -50,5 +50,5 @@ if __name__ == '__main__':
             outdata = {'year': year, 
                        'columns': COLUMNS, 
                        'rows': rows}
-            json.dump(outdata, outfile)
+            json.dump(outdata, outfile, indent=2, sort_keys=True)
         print "Wrote output to:", jsonout_fname
