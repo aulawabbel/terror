@@ -1,4 +1,5 @@
 var _core = require('lodash/core');
+var queryString = require('query-string');
 
 module.exports.wordWrapToStringList = function(text, maxLength) {
     var result = [], line = [];
@@ -30,4 +31,11 @@ module.exports.sumIntArray = function(ints) {
 module.exports.titleCase = function(str) {
     return str[0].toUpperCase() + str.substr(1);
 };
+
+
+/*
+ * Parse the get parameters in the URL to an object
+ *
+ */
+module.exports.urlParams = queryString.parse(location.search);
 

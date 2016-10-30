@@ -96,19 +96,24 @@ window.onload = function() {
         return row;
 
     };
+
+    var params = utils.urlParams;
     // initialize with selected years data.
-    var year = $('#select_year').val();
+    var year = params.year || $('#select_year').val();
     Data.load(year, function(){
         var rows = Data.getRowsDict();
         var months = _core.map(rows.islamic, function(row) {
             return row[Data.COL.DATE].month();
         });
         months = _array.uniq(months);
-        var country = 'all';
-        // show the most recent month
-        month = _core.max(months);
+        var country = params.country || 'all';
+        // show the most recent month if not given
+        var month = params.month || _core.max(months);
         updateChart(year, month, country);
+        // update the select boxes to reflect the shown data.
+        $('#select_year').val(year);
         $('#select_month').val(month);
+        $('#select_country').val(country);
 
     });
 
