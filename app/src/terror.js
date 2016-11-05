@@ -103,28 +103,8 @@ window.onload = function() {
     // initialize with selected years data.
     var year = params.year || $('#select_year').val();
     Data.load(year, function(){
-        var rows = Data.getRowsDict();
-        var months = _core.map(rows.islamic, function(row) {
-            return row[Data.COL.DATE].month();
-        });
-        months = _array.uniq(months);
+        var month = getInitialMonth(params.month);
         var country = params.country || 'all';
-        var month;
-        if (params.month) {
-            if (params.month == "all") {
-                month = params.month;
-            } else {
-                // month is zero based in the code.
-                month = params.month - 1;
-
-            }
-
-        } else {
-            // show the most recent month if not given
-            month = _core.max(months);
-
-        }
-        month = month;
         terrorChartWrapper.updateChart(year, month, country);
         updateDirectLink(year, month, country);
 
@@ -138,7 +118,32 @@ window.onload = function() {
 
 };
 
+function getInitialMonth(monthVal) {
+    /*
+     * Get the index of month (starting from 0) to initialize the chart with.
+     * If monthVal is set use that (this value is should 1-based and can also be string "all".
+     * If monthVal is not given or undefined return latest month that data is available for.
+     */
 
+    var monthIndex;
+    if (monthVal !== undefined) {
+        if (monthVal == "all") {
+            month = monthVal;
+        } else {
+            // month is zero based in the code.
+            monthIndex = monthVal - 1;
+        }
+    } else {
+        // show the most recent month that has data
+        var rows = Data.getRowsDict();
+        var months = _core.map(rows.islamic, function(row) {
+            return row[Data.COL.DATE].month();
+        });
+        months = _array.uniq(months);
+        monthIndex = _core.max(months);
+    }
+    return monthIndex;
+}
 
 $(document).on('change', '#select_year', function(){
     // http://stackoverflow.com/questions/15805000/jquery-change-event-callback
