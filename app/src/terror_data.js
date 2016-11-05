@@ -1,6 +1,7 @@
 /**
  * Created by Aulawabbel on 2016-08-06.
  */
+
 var $ = require('jquery');
 var _core = require('lodash/core');
 
@@ -78,7 +79,7 @@ var filterMonth = function(month, rows) {
     if (month !== 'all'){
         month = parseInt(month);
         var myfilter = function(row) {
-            rowMonth = row[COL.DATE].month();
+            var rowMonth = row[COL.DATE].month();
             if (rowMonth === month) {
                 return true;
             } else {
