@@ -27,7 +27,7 @@ var load = function(year, callback) {
         }));
 
     }
-    $.when.apply($, promises).then(function() {
+    Promise.all(promises).then(function() {
         var startDate = moment(year, "YYYY");
         var endDate = moment(parseInt(year)+1, "YYYY");
         NON_ISLAMIC_LOADED_DATA_DATE_FILTRED = filterDate(startDate, endDate, NON_ISLAMIC_LOADED_DATA);
@@ -37,10 +37,8 @@ var load = function(year, callback) {
         };
         callback(dataDict);
 
-        // returned data is in arguments[0][0], arguments[1][0], ... arguments[9][0]
-        // you can process it here
-    }, function() {
-        // error occurred
+    }, function(err) {
+        console.error("Failed to load data for year", year, "Error:", err);
     });
 };
 

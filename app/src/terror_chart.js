@@ -32,82 +32,24 @@ var barChartData = {
     },]
 
 };
-
-var fillCounties = function(data){
-    var select = $('#select_country') || 'all';
-    var selected = select.val();
-    var countries = _core.map(data, function(row) {
-        return row[Data.COL.COUNTY].toLowerCase();
-    });
-    if (selected != 'all') {
-        // we want to keep the selected country even is it has no enteries for loaded period.
-        countries.push(selected);
-    }
-    countries = _array.uniq(countries);
-    countries = _core.sortBy(countries);
-
-    select.empty();
-    select.append($('<option/>', {
-        value: 'all',
-        text : 'All Countries'
-    }));
-    _core.forEach(countries, function(country) {
-        select.append($('<option/>', {
-            value: country,
-            text : utils.titleCase(country)
-        }));
-    });
-    select.val(selected);
-};
-
-var fillMonths = function(data){
-    var select = $('#select_month');
-    var selected = select.val() || 'all';
-    var months = _core.map(data, function(row) {
-        return row[Data.COL.DATE].month();
-    });
-
-    months = _array.uniq(months);
-
-    select.empty();
-    select.append($('<option/>', {
-        value: 'all',
-        text : 'All Months'
-    }));
-    _core.forEach(months, function(month) {
-        select.append($('<option/>', {
-            value: month,
-            text : MONTHS[month]
-        }));
-    });
-    select.val(selected);
-    if (select.val() === null){
-        select.val('all');
-    }
-};
-
+/**
+ * Wrapper around the chart object provide handling of it in a nicer way.
+ */
 class TerrorChart {
     constructor(chart) {
         this.chart = chart;
+        this.rowsData = null;
     }
-    setTimeScale(year, month) {
-        if (month !== 'all') {
-            this.chart.options.scales.xAxes[0].time.min = moment(year, "YYYY").month(month).startOf('month');
-            this.chart.options.scales.xAxes[0].time.max = moment(year, "YYYY").month(month).endOf('month');
-        } else {
-            this.chart.options.scales.xAxes[0].time.min = moment(year, "YYYY").startOf('year');
-            this.chart.options.scales.xAxes[0].time.max = moment(year, "YYYY").endOf('year');
-        }
-
+    setData(rowsData) {
+        this.rowsData = rowsData;
     }
-
+    getData() {
+        return this.rowsData;
+    }
     updateChart(year, month, country){
-        var rows = Data.getRowsDict();
-        fillMonths(rows.islamic.concat(rows.nonIslamic));
-        fillCounties(rows.islamic.concat(rows.nonIslamic));
-
-        var islamicRows = rows.islamic;
-        var nonIslamicRows = rows.nonIslamic;
+        console.assert(this.rowsData, "The data has not been initialized for the Terror chart", this);
+        var islamicRows = this.rowsData.islamic;
+        var nonIslamicRows = this.rowsData.nonIslamic;
 
         islamicRows = Data.filterMonth(month, islamicRows);
         islamicRows = Data.filterCountry(country, islamicRows);
@@ -120,12 +62,12 @@ class TerrorChart {
         nonIslamicRows = Data.filterMonth(month, nonIslamicRows);
         nonIslamicRows = Data.filterCountry(country, nonIslamicRows);
 
-        var islamicData = this.getBubbleData(islamicRows, Data.COL.KILLS);
-        var islamicSuspectedData = this.getBubbleData(islamicSuspectedRows, Data.COL.KILLS);
-        var nonIslamicData = this.getBubbleData(nonIslamicRows, Data.COL.KILLS);
+        var islamicData = this._getBubbleData(islamicRows, Data.COL.KILLS);
+        var islamicSuspectedData = this._getBubbleData(islamicSuspectedRows, Data.COL.KILLS);
+        var nonIslamicData = this._getBubbleData(nonIslamicRows, Data.COL.KILLS);
 
         var textInfo = " " + year;
-        this.setTimeScale(year, month);
+        this._setTimeScale(year, month);
         if (month !== 'all') {
             textInfo += " " +  MONTHS[month];
         }
@@ -133,7 +75,7 @@ class TerrorChart {
             textInfo += " " + utils.titleCase(country);
         }
         this.chart.options.title.text = ["Terror", textInfo];
-        $('.statistics').text(textInfo + ' - ' + this.getStatisticsString(islamicRows, nonIslamicRows));
+        $('.statistics').text(textInfo + ' - ' + this._getStatisticsString(islamicRows, nonIslamicRows));
 
         barChartData.datasets[0].data = islamicData;
         barChartData.datasets[1].data = islamicSuspectedData;
@@ -141,7 +83,7 @@ class TerrorChart {
         this.chart.update();
     }
 
-    getBubbleData(rows, col){
+    _getBubbleData(rows, col){
         var radius;
         var valueForLog;
         var minRadius = 3;
@@ -162,7 +104,18 @@ class TerrorChart {
         });
 
     }
-    getStatisticsString(islamicRows, nonIslamicRows) {
+    _setTimeScale(year, month) {
+        if (month !== 'all') {
+            this.chart.options.scales.xAxes[0].time.min = moment(year, "YYYY").month(month).startOf('month');
+            this.chart.options.scales.xAxes[0].time.max = moment(year, "YYYY").month(month).endOf('month');
+        } else {
+            this.chart.options.scales.xAxes[0].time.min = moment(year, "YYYY").startOf('year');
+            this.chart.options.scales.xAxes[0].time.max = moment(year, "YYYY").endOf('year');
+        }
+
+    }
+
+    _getStatisticsString(islamicRows, nonIslamicRows) {
         var totKills = 0, totInjured = 0, totAttacks = 0;
 
         if (this.chart.isDatasetVisible(0)) {
@@ -187,4 +140,5 @@ class TerrorChart {
 
 module.exports.TerrorChart = TerrorChart;
 module.exports.barChartData = barChartData;
+module.exports.MONTHS = MONTHS;
 

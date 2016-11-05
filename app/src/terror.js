@@ -99,14 +99,13 @@ window.onload = function() {
 
     };
 
-    var params = utils.urlParams;
     // initialize with selected years data.
-    var year = params.year || $('#select_year').val();
-    Data.load(year, function(){
-        var month = getInitialMonth(params.month);
-        var country = params.country || 'all';
-        terrorChartWrapper.updateChart(year, month, country);
-        updateDirectLink(year, month, country);
+    var year = utils.urlParams.year || $('#select_year').val();
+    Data.load(year, function(rowsData){
+        var month = getInitialMonth(utils.urlParams.month);
+        var country = utils.urlParams.country || 'all';
+
+        updateChart(year, month, country, rowsData);
 
         // update the select boxes to reflect the shown data.
         $('#select_year').val(year);
@@ -115,10 +114,9 @@ window.onload = function() {
 
     });
 
-
 };
 
-function getInitialMonth(monthVal) {
+var getInitialMonth = function(monthVal) {
     /*
      * Get the index of month (starting from 0) to initialize the chart with.
      * If monthVal is set use that (this value is should 1-based and can also be string "all".
@@ -143,7 +141,77 @@ function getInitialMonth(monthVal) {
         monthIndex = _core.max(months);
     }
     return monthIndex;
-}
+};
+
+var updateChart = function(year, month, country, rowsData) {
+    /** Update the chart and rest of page that is dependent on these values.
+     * if rowsData is given then also update the chart with that, else reuse the last set data.
+     */
+    rowsData = rowsData || terrorChartWrapper.getData();
+    console.log("updateChart", rowsData, year, month, country);
+    if (rowsData !== undefined) {
+        terrorChartWrapper.setData(rowsData);
+    }
+    terrorChartWrapper.updateChart(year, month, country);
+    fillMonths(rowsData.islamic.concat(rowsData.nonIslamic));
+    fillCounties(rowsData.islamic.concat(rowsData.nonIslamic));
+    updateDirectLink(year, month, country);
+
+};
+
+
+var fillCounties = function(data){
+    var select = $('#select_country') || 'all';
+    var selected = select.val();
+    var countries = _core.map(data, function(row) {
+        return row[Data.COL.COUNTY].toLowerCase();
+    });
+    if (selected != 'all') {
+        // we want to keep the selected country even is it has no enteries for loaded period.
+        countries.push(selected);
+    }
+    countries = _array.uniq(countries);
+    countries = _core.sortBy(countries);
+
+    select.empty();
+    select.append($('<option/>', {
+        value: 'all',
+        text : 'All Countries'
+    }));
+    _core.forEach(countries, function(country) {
+        select.append($('<option/>', {
+            value: country,
+            text : utils.titleCase(country)
+        }));
+    });
+    select.val(selected);
+};
+
+var fillMonths = function(data){
+    var select = $('#select_month');
+    var selected = select.val() || 'all';
+    var months = _core.map(data, function(row) {
+        return row[Data.COL.DATE].month();
+    });
+
+    months = _array.uniq(months);
+
+    select.empty();
+    select.append($('<option/>', {
+        value: 'all',
+        text : 'All Months'
+    }));
+    _core.forEach(months, function(month) {
+        select.append($('<option/>', {
+            value: month,
+            text : terrorChartModule.MONTHS[month]
+        }));
+    });
+    select.val(selected);
+    if (select.val() === null){
+        select.val('all');
+    }
+};
 
 $(document).on('change', '#select_year', function(){
     // http://stackoverflow.com/questions/15805000/jquery-change-event-callback
@@ -158,15 +226,14 @@ $(document).on('change', '#select_country', function(){
     updateChartWithSelectboxVals();
 });
 
-var updateChartWithSelectboxVals = function(){
+var updateChartWithSelectboxVals = function(rowsData){
     var year = $('#select_year').val();
     var month = $('#select_month').val();
     var country = $('#select_country').val();
     globals.year = year;
     globals.month = month;
     globals.country = country;
-    terrorChartWrapper.updateChart(year, month, country);
-    updateDirectLink(year, month, country);
+    updateChart(year, month, country, rowsData);
 
 };
 
