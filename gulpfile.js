@@ -12,6 +12,7 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 
 var browserify = require('browserify');
+var babelify = require('babelify');
 var watch = require('gulp-watch');
 var sourcemaps  = require('gulp-sourcemaps');
 
@@ -19,7 +20,7 @@ gulp.task('scripts', function() {
     return browserify({
         entries: './app/src/bundle.js',
         debug: true
-     })
+     }).transform(babelify)
     .bundle()
     .on('error', function(err) {
         gutil.log("Browserify Error", gutil.colors.red(err.message));
@@ -43,7 +44,13 @@ gulp.task('watch', ['default'], function() {
 gulp.task('lint', function() {
     return gulp.src('app/src/**/*.js')
         .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter('default'))
+        .on('error', function(err) {
+            gutil.log("JSHint Error", gutil.colors.red(err.message));
+            // emit end to not break on error.
+            this.emit('end');
+        })
+        ;
 });
 
 gulp.task('default', ['lint', 'scripts']);
