@@ -52,6 +52,10 @@ html {
     display: inline-block;
     float: left;
 }
+.footer .directlink {
+    display: inline-block;
+    float: left;
+}
 select {
     max-width: 165px;
     font-family: sans-serif;

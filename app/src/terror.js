@@ -107,9 +107,25 @@ window.onload = function() {
         });
         months = _array.uniq(months);
         var country = params.country || 'all';
-        // show the most recent month if not given
-        var month = params.month || _core.max(months);
+        var month;
+        if (params.month) {
+            if (params.month == "all") {
+                month = params.month;
+            } else {
+                // month is zero based in the code.
+                month = params.month - 1;
+
+            }
+
+        } else {
+            // show the most recent month if not given
+            month = _core.max(months);
+
+        }
+        month = month;
         updateChart(year, month, country);
+        updateDirectLink(year, month, country);
+
         // update the select boxes to reflect the shown data.
         $('#select_year').val(year);
         $('#select_month').val(month);
@@ -315,5 +331,20 @@ var updateChartWithSelectboxVals = function(){
     globals.month = month;
     globals.country = country;
     updateChart(year, month, country);
+    updateDirectLink(year, month, country);
+
+};
+
+var updateDirectLink = function(year, month, country) {
+    var urlParams = "";
+    urlParams += "year=" + year;
+    if (month == "all") {
+        urlParams += "&month=" + month;
+    } else {
+        urlParams += "&month=" + (parseInt(month) + 1);
+
+    }
+    urlParams += "&country=" + country;
+    $('#directlink').attr("href", "./?" + urlParams);
 
 };

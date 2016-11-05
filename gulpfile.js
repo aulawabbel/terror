@@ -21,8 +21,10 @@ gulp.task('scripts', function() {
         debug: true
      })
     .bundle()
-    .on('error', err => {
-        gutil.log("Browserify Error", gutil.colors.red(err.message))
+    .on('error', function(err) {
+        gutil.log("Browserify Error", gutil.colors.red(err.message));
+        // emit end to not break on error.
+        this.emit('end');
     })
     .pipe(source('bundle.js'))
     .pipe(buffer())

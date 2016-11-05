@@ -2,6 +2,7 @@
 Small interactive console util to ease cleanup of json data based on text filtering.
 '''
 
+
 import re
 re_filter = re.compile(r'(England)', re.IGNORECASE)
 DESC_COL = 5
