@@ -126,7 +126,7 @@ var getInitialMonth = function(monthVal) {
     var monthIndex;
     if (monthVal !== undefined) {
         if (monthVal == "all") {
-            month = monthVal;
+            monthIndex = monthVal;
         } else {
             // month is zero based in the code.
             monthIndex = monthVal - 1;
@@ -156,6 +156,8 @@ var updateChart = function(year, month, country, rowsData) {
     fillMonths(rowsData.islamic.concat(rowsData.nonIslamic));
     fillCounties(rowsData.islamic.concat(rowsData.nonIslamic));
     updateDirectLink(year, month, country);
+    $('.statistics').text(terrorChartModule.getTitleText(year, month, country) + ' - ' + terrorChartWrapper.getStatisticsString());
+
 
 };
 

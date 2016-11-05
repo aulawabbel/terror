@@ -48,39 +48,20 @@ class TerrorChart {
     }
     updateChart(year, month, country){
         console.assert(this.rowsData, "The data has not been initialized for the Terror chart", this);
-        var islamicRows = this.rowsData.islamic;
-        var nonIslamicRows = this.rowsData.nonIslamic;
+        this.filtredData = filterData(this.rowsData, year, month, country);
 
-        islamicRows = Data.filterMonth(month, islamicRows);
-        islamicRows = Data.filterCountry(country, islamicRows);
-
-        var pattern = /(honor|suspected|moral|sexual|marrying|indecent)/i;
-        var islamicSuspectedRows = Data.filterOnRegexp(pattern, islamicRows, false);
-
-        islamicRows = Data.filterOnRegexp(pattern, islamicRows, true);
-
-        nonIslamicRows = Data.filterMonth(month, nonIslamicRows);
-        nonIslamicRows = Data.filterCountry(country, nonIslamicRows);
-
-        var islamicData = this._getBubbleData(islamicRows, Data.COL.KILLS);
-        var islamicSuspectedData = this._getBubbleData(islamicSuspectedRows, Data.COL.KILLS);
-        var nonIslamicData = this._getBubbleData(nonIslamicRows, Data.COL.KILLS);
-
-        var textInfo = " " + year;
-        this._setTimeScale(year, month);
-        if (month !== 'all') {
-            textInfo += " " +  MONTHS[month];
-        }
-        if (country !== 'all') {
-            textInfo += " " + utils.titleCase(country);
-        }
-        this.chart.options.title.text = ["Terror", textInfo];
-        $('.statistics').text(textInfo + ' - ' + this._getStatisticsString(islamicRows, nonIslamicRows));
+        var islamicData = this._getBubbleData(this.filtredData.islamicRows, Data.COL.KILLS);
+        var islamicSuspectedData = this._getBubbleData(this.filtredData.islamicSuspectedRows, Data.COL.KILLS);
+        var nonIslamicData = this._getBubbleData(this.filtredData.nonIslamicRows, Data.COL.KILLS);
 
         barChartData.datasets[0].data = islamicData;
         barChartData.datasets[1].data = islamicSuspectedData;
         barChartData.datasets[2].data = nonIslamicData;
+        this._setTimeScale(year, month);
         this.chart.update();
+
+        this.chart.options.title.text = ["Terror", getTitleText(year, month, country)];
+
     }
 
     _getBubbleData(rows, col){
@@ -115,18 +96,18 @@ class TerrorChart {
 
     }
 
-    _getStatisticsString(islamicRows, nonIslamicRows) {
+    getStatisticsString() {
         var totKills = 0, totInjured = 0, totAttacks = 0;
 
         if (this.chart.isDatasetVisible(0)) {
-            totAttacks += islamicRows.length;
-            totKills += _math.sumBy(islamicRows, function(row) { return row[Data.COL.KILLS];} );
-            totInjured += _math.sumBy(islamicRows, function(row) { return row[Data.COL.INJURED];} );
+            totAttacks += this.filtredData.islamicRows.length;
+            totKills += _math.sumBy(this.filtredData.islamicRows, function(row) { return row[Data.COL.KILLS];} );
+            totInjured += _math.sumBy(this.filtredData.islamicRows, function(row) { return row[Data.COL.INJURED];} );
         }
         if (this.chart.isDatasetVisible(1)) {
-            totAttacks += nonIslamicRows.length;
-            totKills += _math.sumBy(nonIslamicRows, function(row) { return row[Data.COL.KILLS];} );
-            totInjured += _math.sumBy(nonIslamicRows, function(row) { return row[Data.COL.INJURED];} );
+            totAttacks += this.filtredData.nonIslamicRows.length;
+            totKills += _math.sumBy(this.filtredData.nonIslamicRows, function(row) { return row[Data.COL.KILLS];} );
+            totInjured += _math.sumBy(this.filtredData.nonIslamicRows, function(row) { return row[Data.COL.INJURED];} );
         }
 
         var stats = "Attacks:" + totAttacks.toLocaleString();
@@ -138,7 +119,41 @@ class TerrorChart {
 
 }
 
+var getTitleText = function(year, month, country) {
+    var textInfo = " " + year;
+    if (month !== 'all') {
+        textInfo += " " +  MONTHS[month];
+    }
+    if (country !== 'all') {
+        textInfo += " " + utils.titleCase(country);
+    }
+    return textInfo;
+};
+
+var filterData = function(rowsData, year, month, country){
+    console.log("filterData", rowsData, year, month, country);
+    rowsData = rowsData;
+    var islamicRows = rowsData.islamic;
+    var nonIslamicRows = rowsData.nonIslamic;
+
+    islamicRows = Data.filterMonth(month, islamicRows);
+    islamicRows = Data.filterCountry(country, islamicRows);
+
+    var pattern = /(honor|suspected|moral|sexual|marrying|indecent)/i;
+    var islamicSuspectedRows = Data.filterOnRegexp(pattern, islamicRows, false);
+
+    islamicRows = Data.filterOnRegexp(pattern, islamicRows, true);
+
+    nonIslamicRows = Data.filterMonth(month, nonIslamicRows);
+    nonIslamicRows = Data.filterCountry(country, nonIslamicRows);
+    return {
+        islamicRows : islamicRows,
+        islamicSuspectedRows : islamicSuspectedRows,
+        nonIslamicRows : nonIslamicRows
+    };
+};
 module.exports.TerrorChart = TerrorChart;
 module.exports.barChartData = barChartData;
 module.exports.MONTHS = MONTHS;
+module.exports.getTitleText = getTitleText;
 
