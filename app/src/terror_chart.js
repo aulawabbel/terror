@@ -49,18 +49,19 @@ class TerrorChart {
     updateChart(year, month, country){
         console.assert(this.rowsData, "The data has not been initialized for the Terror chart", this);
         this.filtredData = filterData(this.rowsData, year, month, country);
+        this.filtredData = filterAndMoveSuspectedAndHonor(this.filtredData);
 
-        var islamicData = this._getBubbleData(this.filtredData.islamicRows, Data.COL.KILLS);
-        var islamicSuspectedData = this._getBubbleData(this.filtredData.islamicSuspectedRows, Data.COL.KILLS);
-        var nonIslamicData = this._getBubbleData(this.filtredData.nonIslamicRows, Data.COL.KILLS);
+        var islamicData = this._getBubbleData(this.filtredData.islamic, Data.COL.KILLS);
+        var islamicSuspectedData = this._getBubbleData(this.filtredData.islamicSuspected, Data.COL.KILLS);
+        var nonIslamicData = this._getBubbleData(this.filtredData.nonIslamic, Data.COL.KILLS);
 
         barChartData.datasets[0].data = islamicData;
         barChartData.datasets[1].data = islamicSuspectedData;
         barChartData.datasets[2].data = nonIslamicData;
         this._setTimeScale(year, month);
+        this.chart.options.title.text = ["Terror", getTitleText(year, month, country)];
         this.chart.update();
 
-        this.chart.options.title.text = ["Terror", getTitleText(year, month, country)];
 
     }
 
@@ -100,14 +101,14 @@ class TerrorChart {
         var totKills = 0, totInjured = 0, totAttacks = 0;
 
         if (this.chart.isDatasetVisible(0)) {
-            totAttacks += this.filtredData.islamicRows.length;
-            totKills += _math.sumBy(this.filtredData.islamicRows, function(row) { return row[Data.COL.KILLS];} );
-            totInjured += _math.sumBy(this.filtredData.islamicRows, function(row) { return row[Data.COL.INJURED];} );
+            totAttacks += this.filtredData.islamic.length;
+            totKills += _math.sumBy(this.filtredData.islamic, function(row) { return row[Data.COL.KILLS];} );
+            totInjured += _math.sumBy(this.filtredData.islamic, function(row) { return row[Data.COL.INJURED];} );
         }
         if (this.chart.isDatasetVisible(1)) {
-            totAttacks += this.filtredData.nonIslamicRows.length;
-            totKills += _math.sumBy(this.filtredData.nonIslamicRows, function(row) { return row[Data.COL.KILLS];} );
-            totInjured += _math.sumBy(this.filtredData.nonIslamicRows, function(row) { return row[Data.COL.INJURED];} );
+            totAttacks += this.filtredData.nonIslamic.length;
+            totKills += _math.sumBy(this.filtredData.nonIslamic, function(row) { return row[Data.COL.KILLS];} );
+            totInjured += _math.sumBy(this.filtredData.nonIslamic, function(row) { return row[Data.COL.INJURED];} );
         }
 
         var stats = "Attacks:" + totAttacks.toLocaleString();
@@ -130,28 +131,49 @@ var getTitleText = function(year, month, country) {
     return textInfo;
 };
 
-var filterData = function(rowsData, year, month, country){
-    console.log("filterData", rowsData, year, month, country);
-    rowsData = rowsData;
-    var islamicRows = rowsData.islamic;
-    var nonIslamicRows = rowsData.nonIslamic;
+/**
+ * This function takes the full data and filters out the relevant period and country (for every property on object).
+ * @param rowsData
+ * @param year
+ * @param month
+ * @param country
+ * @returns new data object with all filtered data
+ */
+var filterData = function(data, year, month, country){
+        var filtredData = {};
+        for (var property in data) {
+            if (data.hasOwnProperty(property)) {
+                var rows = data[property];
+                rows = Data.filterMonth(month, rows);
+                rows = Data.filterCountry(country, rows);
+                filtredData[property] = rows;
 
-    islamicRows = Data.filterMonth(month, islamicRows);
-    islamicRows = Data.filterCountry(country, islamicRows);
+            }
+        }
+        return filtredData;
+    };
+
+/**
+ * This filters and moves out the suspected and "honor" islamic attacks to it's own property.
+ * It also
+ * @param rowsData
+ * @returns {{islamic, islamicSuspected: *, nonIslamic: *}}
+ */
+var filterAndMoveSuspectedAndHonor = function(rowsData){
+    var islamic = rowsData.islamic;
+    var nonIslamic = rowsData.nonIslamic;
 
     var pattern = /(honor|suspected|moral|sexual|marrying|indecent)/i;
-    var islamicSuspectedRows = Data.filterOnRegexp(pattern, islamicRows, false);
+    var islamicSuspected = Data.filterOnRegexp(pattern, islamic, false);
 
-    islamicRows = Data.filterOnRegexp(pattern, islamicRows, true);
-
-    nonIslamicRows = Data.filterMonth(month, nonIslamicRows);
-    nonIslamicRows = Data.filterCountry(country, nonIslamicRows);
+    islamic = Data.filterOnRegexp(pattern, islamic, true);
     return {
-        islamicRows : islamicRows,
-        islamicSuspectedRows : islamicSuspectedRows,
-        nonIslamicRows : nonIslamicRows
+        islamic : islamic,
+        islamicSuspected : islamicSuspected,
+        nonIslamic : nonIslamic
     };
 };
+
 module.exports.TerrorChart = TerrorChart;
 module.exports.barChartData = barChartData;
 module.exports.MONTHS = MONTHS;

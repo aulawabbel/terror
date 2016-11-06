@@ -7,8 +7,6 @@ var Data = require('./terror_data');
 var utils = require('./utils');
 var terrorChartModule = require('./terror_chart');
 
-var globals = {};
-
 // TODO: Animation Idea: http://jsbin.com/yitep/5/edit?html,js,output
 //Chart.pluginService.register(
 //    {
@@ -232,9 +230,6 @@ var updateChartWithSelectboxVals = function(rowsData){
     var year = $('#select_year').val();
     var month = $('#select_month').val();
     var country = $('#select_country').val();
-    globals.year = year;
-    globals.month = month;
-    globals.country = country;
     updateChart(year, month, country, rowsData);
 
 };
