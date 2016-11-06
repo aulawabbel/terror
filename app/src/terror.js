@@ -83,7 +83,7 @@ Chart.pluginService.register(
             Need to do this here to trigger on enable/disable datasets on chart legend.
              */
             if (terrorChartWrapper !== undefined) {
-                $('.statistics').text(terrorChartWrapper.getTitleText() + ' - ' + terrorChartWrapper.getStatisticsString());
+                $('.statistics').text(terrorChartWrapper.getStatisticsString());
 
             }
         }
