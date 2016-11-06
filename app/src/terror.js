@@ -7,13 +7,7 @@ var utils = require('./utils');
 var terrorChartModule = require('./terror_chart');
 
 // TODO: Animation Idea: http://jsbin.com/yitep/5/edit?html,js,output
-//Chart.pluginService.register(
-//    {
-//    'beforeUpdate': function(chartInstance) {
-//        updateChart(globals.year, globals.month, globals.country);
-//        }
-//    }
-//);
+
 
 var terrorChartWrapper;
 window.onload = function() {

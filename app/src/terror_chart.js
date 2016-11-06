@@ -15,7 +15,7 @@ var createChart = function(ctx) {
 
     var terrorChart = new Chart(ctx, {
         type: 'bubble',
-        data: barChartData,
+        data: chartData,
         options: {
             title: {
                 display: true,
@@ -83,10 +83,10 @@ var createChart = function(ctx) {
         }
     });
     /**
-     * Get the data row assosiated with a specific tooltip (where user clicked)
+     * Get the incident data assosiated with a specific tooltip (where user clicked)
      * @param tooltip
      * @param data
-     * @returns a the underlying data array for the asked tooltip.
+     * @returns a the underlying incident data array for the asked tooltip.
      */
     var getRowFromToolTipData = function(tooltip, data) {
         var dataset = data.datasets[tooltip.datasetIndex];
@@ -103,7 +103,7 @@ var dataSetIndexes = {
     nonIslamic : 2
 };
 
-var barChartData = {
+var chartData = {
     labels: [],
     datasets: [{
         hidden: false,
@@ -150,9 +150,9 @@ class TerrorChart {
         var islamicSuspectedData = this._getBubbleData(this.filtredData.islamicSuspected, Data.COL.KILLS);
         var nonIslamicData = this._getBubbleData(this.filtredData.nonIslamic, Data.COL.KILLS);
 
-        barChartData.datasets[dataSetIndexes.islamic].data = islamicData;
-        barChartData.datasets[dataSetIndexes.islamicSuspected].data = islamicSuspectedData;
-        barChartData.datasets[dataSetIndexes.nonIslamic].data = nonIslamicData;
+        chartData.datasets[dataSetIndexes.islamic].data = islamicData;
+        chartData.datasets[dataSetIndexes.islamicSuspected].data = islamicSuspectedData;
+        chartData.datasets[dataSetIndexes.nonIslamic].data = nonIslamicData;
         this._setTimeScale(year, month);
         this.chart.options.title.text = ["Terror", getTitleText(year, month, country)];
         this.chart.update();
@@ -217,7 +217,7 @@ class TerrorChart {
         var _this = this;
         _object.forOwn(dataSetIndexes, function(dataSetIndex, key) {
             if (_this.chart.isDatasetVisible(dataSetIndex)) {
-                var data = barChartData.datasets[dataSetIndex].data;
+                var data = chartData.datasets[dataSetIndex].data;
                 totAttacks += data.length;
                 totKills += _math.sumBy(data, item => item.rowData[Data.COL.KILLS]);
                 totInjured += _math.sumBy(data, item => item.rowData[Data.COL.INJURED]);
@@ -247,14 +247,13 @@ var getTitleText = function(year, month, country) {
 
 
 /**
- * This filters and moves out the suspected and "honor" islamic attacks to it's own property.
- * It also
- * @param rowsData
+ * This filters and moves out the suspected and "honor" islamic attacks to it's own property "islamicSuspected".
+ * @param data
  * @returns {{islamic, islamicSuspected: *, nonIslamic: *}}
  */
-var filterAndMoveSuspectedAndHonor = function(rowsData){
-    var islamic = rowsData.islamic;
-    var nonIslamic = rowsData.nonIslamic;
+var filterAndMoveSuspectedAndHonor = function(data){
+    var islamic = data.islamic;
+    var nonIslamic = data.nonIslamic;
 
     var pattern = /(honor|suspected|moral|sexual|marrying|indecent)/i;
     var islamicSuspected = Data.filterOnRegexp(pattern, islamic, false);
