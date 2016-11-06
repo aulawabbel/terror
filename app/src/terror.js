@@ -2,7 +2,6 @@ var $ = require('jquery');
 var moment = require('moment');
 var _core = require('lodash/core');
 var _array = require('lodash/array');
-var Chart = require("chart.js");
 var Data = require('./terror_data');
 var utils = require('./utils');
 var terrorChartModule = require('./terror_chart');
@@ -19,83 +18,7 @@ var terrorChartModule = require('./terror_chart');
 var terrorChartWrapper;
 window.onload = function() {
     var ctx = document.getElementById("canvas").getContext("2d");
-    var terrorChart = new Chart(ctx, {
-        type: 'bubble',
-        data: terrorChartModule.barChartData,
-        options: {
-            title: {
-                display: true,
-                text: 'Terror...',
-                fontSize: 16
-            },
-            responsive: true,
-            maintainAspectRatio: true,
-            legend: {
-                position: 'top'
-            },
-            scales: {
-                xAxes: [{
-                    type: 'time',
-                    time: {unit: 'month'},
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Date'
-                    }
-                }],
-                yAxes: [{
-                    type: 'logarithmic',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Killed'
-                    },
-                    ticks: {
-                        min: 1,
-                        maxTicksLimit: 10,
-                        callback: function (numericalTick, index, ticks) {
-                            // as this is the log value and we start with 2 to get one on the scale.
-                            return numericalTick - 1;
-                        }
-                    }
-                }]
-            },
-            tooltips: {
-                mode: 'single',
-                callbacks: {
-                    title: function(tooltipItems, data) {
-                        return getRowFromToolTipData(tooltipItems[0],data)[Data.COL.DATE].format("YYYY-MM-DD");
-
-                    },
-                    afterTitle: function(tooltipItems, data) {
-                        return [
-                            getRowFromToolTipData(tooltipItems[0],data)[Data.COL.COUNTY],
-                            getRowFromToolTipData(tooltipItems[0],data)[Data.COL.CITY]
-                        ];
-
-                    },
-                    label : function(tooltip, data){
-                        var row = getRowFromToolTipData(tooltip, data);
-                        var dataset = data.datasets[tooltip.datasetIndex];
-                        var value = "Killed: " + dataset.data[tooltip.index].value;
-                        value += " Injured: " + row[Data.COL.INJURED];
-                        return value;
-                    },
-                    afterBody: function(tooltipItems, data) {
-                        var row = getRowFromToolTipData(tooltipItems[0], data);
-                        return utils.wordWrapToStringList(row[Data.COL.DESCRIPTION], 60);
-
-                    }
-                }
-            }
-        }
-    });
-
-    terrorChartWrapper = new terrorChartModule.TerrorChart(terrorChart);
-    var getRowFromToolTipData = function(tooltip, data) {
-        var dataset = data.datasets[tooltip.datasetIndex];
-        var row = dataset.data[tooltip.index].rowData;
-        return row;
-
-    };
+    terrorChartWrapper = new terrorChartModule.TerrorChart(ctx);
 
     // initialize with selected years data.
     var year = utils.urlParams.year || $('#select_year').val();
