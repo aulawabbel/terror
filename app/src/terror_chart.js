@@ -209,7 +209,9 @@ class TerrorChart {
         }
 
     }
-
+    getTitleText() {
+        return this.chart.options.title.text;
+    }
     getStatisticsString() {
         var totKills = 0, totInjured = 0, totAttacks = 0;
         var _this = this;

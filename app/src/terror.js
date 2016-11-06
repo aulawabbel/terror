@@ -77,11 +77,24 @@ var updateChart = function(year, month, country, rowsData) {
     fillMonths(rowsData.islamic.concat(rowsData.nonIslamic));
     fillCounties(rowsData.islamic.concat(rowsData.nonIslamic));
     updateDirectLink(year, month, country);
-    $('.statistics').text(terrorChartModule.getTitleText(year, month, country) + ' - ' + terrorChartWrapper.getStatisticsString());
 
 
 };
 
+Chart.pluginService.register(
+    {
+        'afterUpdate': function(chartInstance) {
+            /*
+            Ugly way to update the statistics if data shown changes,
+            Need to do this here to trigger on enable/disable datasets on chart legend.
+             */
+            if (terrorChartWrapper !== undefined) {
+                $('.statistics').text(terrorChartWrapper.getTitleText() + ' - ' + terrorChartWrapper.getStatisticsString());
+
+            }
+        }
+    }
+);
 
 var fillCounties = function(data){
     var select = $('#select_country') || 'all';
